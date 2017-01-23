@@ -11,15 +11,16 @@
 |
 */
 
-$config['app_version']          = "292";
+$config['app_version']          = "2xx";
 $config['install_lock']         = "";
-$config['license_number']       = "6985-4154-4877-5782";
-$config['doc_url']              = "http://www.richinmedia.co.uk/";
+$config['license_number']       = "xxxx-xxxx-xxxx-xxxx";
+$config['doc_url']              = "http://expressionengine.com/user_guide/";
 $config['is_system_on']         = "y";
-$config['site_label']           = "Rich In Media";
+$config['site_label']           = "Company Name";
 $config['cookie_prefix']        = "";
+$config['cookie_httponly'] 	= 'y';
 $config['allow_extensions']     = "y";
-$config['tz_country']			= "gb";
+$config['tz_country']		= "xx";
 $config['enable_db_caching']	= "n";
 $config['new_version_check']	= "y";
 $config['hidden_template_indicator']    = "_";
@@ -43,12 +44,12 @@ $system_folder                  = "admin.php";
 // Images
 $images_folder			= "media/images";
 $images_path			= $base_path . $images_folder;
-$images_url				= $base_url . $images_folder;
+$images_url			= $base_url . $images_folder;
 
 // Files
 $files_folder			= "media/files";
-$files_path				= $base_path . $files_folder;
-$files_url				= $base_url . $files_folder;
+$files_path			= $base_path . $files_folder;
+$files_url			= $base_url . $files_folder;
 
 // Multimedia
 $multimedia_folder		= "media/multimedia";
@@ -83,47 +84,47 @@ $config['enable_sql_caching']   = 'n'; # Cache Dynamic Channel Queries?
 $config['email_debug']          = 'n'; # y/n 
 
 // Email settings
-$config['webmaster_email']		= 'richard@richinmedia.co.uk';
+$config['webmaster_email']		= 'xxxxx@xxxx.xxx';
 $config['mail_format']			= 'html';
 $config['mail_protocol']		= 'smtp';
 $config['email_charset']		= 'utf-8';
-$config['smtp_server']			= 'smtp.mandrillapp.com';
+$config['smtp_server']			= '';
 $config['smtp_port'] 			= '587';
-$config['smtp_username'] 		= 'rich.merchant80@gmail.com';
-$config['smtp_password'] 		= 'cB55YQLIdG4Krhvqm0k2Bw';
+$config['smtp_username'] 		= '';
+$config['smtp_password'] 		= '';
+$config['custom_mail_header'] 		= array();
+
+// Mandrill example
+/**
 $config['custom_mail_header'] 	= array(
-	array('header' => 'X-MC-Subaccount', 'value' => 'rich-in-media'),
+	array('header' => 'X-MC-Subaccount', 'value' => 'xxxxxxx'),
 	array('header' => 'X-MC-AutoHtml', 'value' => 'true'),
 	array('header' => 'X-MC-Track', 'value' => 'opens')
 );
-
-// low variables
-$config['low_variables_save_as_files'] = 'y';
-$config['low_variables_file_path'] = $base_path . 'templates/';
-	
+**/	
 	
 if(!defined('ENV')) 
 {
 	switch ($_SERVER['SERVER_NAME']) 
 	{
-		case 'richinmedia.co.uk':
-		case 'www.richinmedia.co.uk':
+		case 'xxxx':
+		case 'www.xxxx':
 			define('ENV', 'production');
 			define('LIVE', TRUE);
 		break;
 		
-		case 'staging.richinmedia.co.uk':
+		case 'staging.xxxx':
 			define('ENV', 'staging');
 			define('LIVE', FALSE);
 			
-			$config['site_label'] = "Rich In Media - Staging";
+			$config['site_label'] = "Company Name - Staging";
 		break;
 	
 		default:
 			define('ENV', 'development');
 			define('LIVE', FALSE);
 			
-			$config['site_label'] = "Rich In Media - Development";
+			$config['site_label'] = "Company Name - Development";
 			
 			// Settings
 			$config['show_profiler']        = 'n'; # y/n
@@ -135,112 +136,29 @@ if(!defined('ENV'))
 }
 
 // Media Configuration
-switch (ENV) 
-{
-	case 'production':
-		$config['upload_preferences'] = array(
-			2 => array(
-				'name'        => 'Blog Audio',
-				'server_path' => "{$multimedia_path}/audio/blog_audio/",
-				'url'         => "{$multimedia_url}/audio/blog_audio/"
-			),
-			3 => array(
-				'name'        => 'Blog Post Images',
-				'server_path' => "{$images_path}/blog/posts/",
-				'url'         => "{$images_url}/blog/posts/"
-			),
-			4 => array(
-				'name'        => 'Blog Images',
-				'server_path' => "{$images_path}/blog/images/",
-				'url'         => "{$images_url}/blog/images/"
-			),
-			5 => array(
-				'name'        => 'Portfolio Image',
-				'server_path' => "{$images_path}/portfolio/",
-				'url'         => "{$images_url}/portfolio/"
-			),
-			6 => array(
-				'name'        => 'Profile Image',
-				'server_path' => "{$images_path}/profile/",
-				'url'         => "{$images_url}/profile/"
-			),
-			7 => array(
-				'name'        => 'Development CV\'s',
-				'server_path' => "{$files_path}/cv/",
-				'url'         => "{$files_url}/cv/"
-			)
-		);
-		break;
-	case 'staging':
-		$config['upload_preferences'] = array(
-			2 => array(
-				'name'        => 'Staging Blog Audio',
-				'server_path' => "{$multimedia_path}/audio/blog_audio/",
-				'url'         => "{$multimedia_url}/audio/blog_audio/"
-			),
-			3 => array(
-				'name'        => 'Staging Blog Post Images',
-				'server_path' => "{$images_path}/blog/posts/",
-				'url'         => "{$images_url}/blog/posts/"
-			),
-			4 => array(
-				'name'        => 'Staging Blog Images',
-				'server_path' => "{$images_path}/blog/images/",
-				'url'         => "{$images_url}/blog/images/"
-			),
-			5 => array(
-				'name'        => 'Staging Portfolio Image',
-				'server_path' => "{$images_path}/portfolio/",
-				'url'         => "{$images_url}/portfolio/"
-			),
-			6 => array(
-				'name'        => 'Staging Profile Image',
-				'server_path' => "{$images_path}/profile/",
-				'url'         => "{$images_url}/profile/"
-			),
-			7 => array(
-				'name'        => 'Development CV\'s',
-				'server_path' => "{$files_path}/cv/",
-				'url'         => "{$files_url}/cv/"
-			)
-		);
-		break;
-	case 'development':
-		$config['upload_preferences'] = array(
-			2 => array(
-				'name'        => 'Development Blog Audio',
-				'server_path' => "{$multimedia_path}/audio/blog_audio/",
-				'url'         => "{$multimedia_url}/audio/blog_audio/"
-			),
-			3 => array(
-				'name'        => 'Development Blog Post Images',
-				'server_path' => "{$images_path}/blog/posts/",
-				'url'         => "{$images_url}/blog/posts/"
-			),
-			4 => array(
-				'name'        => 'Development Blog Images',
-				'server_path' => "{$images_path}/blog/images/",
-				'url'         => "{$images_url}/blog/images/"
-			),
-			5 => array(
-				'name'        => 'Development Portfolio Image',
-				'server_path' => "{$images_path}/portfolio/",
-				'url'         => "{$images_url}/portfolio/"
-			),
-			6 => array(
-				'name'        => 'Development Profile Image',
-				'server_path' => "{$images_path}/profile/",
-				'url'         => "{$images_url}/profile/"
-			),
-			7 => array(
-				'name'        => 'Development CV\'s',
-				'server_path' => "{$files_path}/cv/",
-				'url'         => "{$files_url}/cv/"
-			)
-		);
-		break;
-}
-$config['cookie_httponly'] = 'y';
+/**
+ * Custom upload directory paths
+ * 
+ * The array keys must match the ID from exp_upload_prefs
+ */
+
+// $env_config['upload_preferences'] = array(
+//     1 => array(
+//         'name'        => 'Default Uploads',
+//         'server_path' => $images_path . '/uploads/',
+//         'url'         => $images_url  . '/uploads/'
+//     ),
+//     2 => array(
+//         'name'        => 'Multimedia Uploads',
+//         'server_path' => $multimedia_path . '/uploads/',
+//         'url'         => $multimedia_url  . '/uploads/'
+//     ),
+//     3 => array(
+//         'name'        => 'File Uploads',
+//         'server_path' => $files_path . '/uploads/',
+//         'url'         => $files_url  . '/uploads/'
+//     )
+// );
 
 // END EE config items
 
@@ -461,7 +379,7 @@ $config['cache_path'] = "";
 | enabled you MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = "zJ3Aj9Uh18220dB7juL88KW350Xo35pj";
+$config['encryption_key'] = "";
 
 /*
 |--------------------------------------------------------------------------
