@@ -95,13 +95,11 @@ $config['smtp_password'] 		= '';
 $config['custom_mail_header'] 		= array();
 
 // Mandrill example
-/**
-$config['custom_mail_header'] 	= array(
-	array('header' => 'X-MC-Subaccount', 'value' => 'xxxxxxx'),
-	array('header' => 'X-MC-AutoHtml', 'value' => 'true'),
-	array('header' => 'X-MC-Track', 'value' => 'opens')
-);
-**/	
+//$config['custom_mail_header'] 	= array(
+//	array('header' => 'X-MC-Subaccount', 'value' => 'xxxxxxx'),
+//	array('header' => 'X-MC-AutoHtml', 'value' => 'true'),
+//	array('header' => 'X-MC-Track', 'value' => 'opens')
+//);	
 	
 if(!defined('ENV')) 
 {
